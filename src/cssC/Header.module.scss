@@ -1,0 +1,21 @@
+.header {
+    background-color: $headerC;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 1.5em 0; 
+    color: $white;
+
+    p {
+        border-left: .0625em solid $white;
+        border-right: .0625em solid $white;
+        border-radius: .25em;
+        margin: .25em 0;
+        font-weight: 300;
+        font-size: 4em;
+        width: max-content;
+        margin: 0;
+        
+    }
+}

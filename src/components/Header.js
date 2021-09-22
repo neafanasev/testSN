@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
+import s from '../cssC/Header.module.css'
 
 const Header = () => {
     return (
-        <header id='header'>
+        <header className={s.header}>
             <div id="logo">
                 <p>
                     &nbsp; &#191; Why did I do that ?  &nbsp;
