@@ -1,0 +1,21 @@
+.header {
+    background-color: rgb(44, 4, 44);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 1.5em 0; 
+    color: rgb(235, 235, 235);
+}
+
+.header p {
+    border-left: .0625em solid rgb(235, 235, 235);
+    border-right: .0625em solid rgb(235, 235, 235);
+    border-radius: .25em;
+    margin: .25em 0;
+    font-weight: 300;
+    font-size: 4em;
+    width: max-content;
+    margin: 0;
+    
+}

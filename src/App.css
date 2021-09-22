@@ -28,72 +28,6 @@ main {
           flex-direction: row;
 }
 
-main #nav {
-  width: 20%;
-  background-color: #2c042c;
-  padding: 0 1em 1em;
-}
-
-main #nav nav {
-  border-left: 0.25em solid #ebebeb;
-  border-right: 0.25em solid #ebebeb;
-  border-radius: 1em;
-  height: calc(726px - 133px - 16px);
-  color: #ebebeb;
-}
-
-main #nav nav .nav-item {
-  padding: .5em 0;
-  font-size: 2em;
-  font-weight: 300;
-  text-align: center;
-  border-radius: .4em;
-}
-
-main #nav nav .nav-item:hover {
-  background-color: #17121b;
-}
-
-main .content-wrapper {
-  width: 80%;
-  overflow-y: scroll;
-  height: calc(726px - 133px);
-}
-
-main .content-wrapper .profile-info {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  padding: 2em 0;
-}
-
-main .content-wrapper .profile-info .profile-picture {
-  width: 20%;
-  padding: 0 2em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-main .content-wrapper .profile-info .profile-picture img {
-  width: 100%;
-  border-radius: 50%;
-}
-
-main .content-wrapper .profile-info .main-info {
-  width: 80%;
-}
-
-main .content-wrapper .profile-info .main-info #name h1 {
-  font-size: 3em;
-  font-weight: 400;
-}
-
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -114,4 +48,4 @@ main .content-wrapper .profile-info .main-info #name h1 {
 ::-webkit-scrollbar-thumb:hover {
   background: #ebebeb;
 }
-/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=app.css.map */

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Profile from './Profile'
-import Nav from './Nav'
+import Profile from './Profile/Profile'
+import Nav from './Nav/Nav'
 
 const Main = () => {
     return (
