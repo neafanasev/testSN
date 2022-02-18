@@ -14,12 +14,17 @@
 
 .item {
     padding: .5em 0;
-    font-size: 2em;
-    font-weight: 300;
     text-align: center;
     border-radius: .4em;
 }
 
 .item:hover {
     background-color: rgb(23, 18, 27);
+}
+
+.item a {
+    font-size: 2em;
+    font-weight: 300;
+    color: #ffffff;
+    text-decoration: none;
 }

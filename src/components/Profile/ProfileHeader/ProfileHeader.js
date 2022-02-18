@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import s from './ProfileHeader.module.css';
 
 const ProfileHeader = () => {
     return (
         <div className={s.profileHeader}>
             <div className={s.picture}>
-                <img src="https://img.scoop.it/cKAEfvNSTJwCa79cmbVddoXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY"/>
+                <img alt="" src="https://img.scoop.it/cKAEfvNSTJwCa79cmbVddoXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY"/>
             </div>
             <div className={s.info}>
                 <div className={s.name}>

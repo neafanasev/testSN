@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import s from './Post.module.css'
 
 
 const Post = (props) => {
     return (
         <div className={s.item}>
-            <img src="https://img.scoop.it/cKAEfvNSTJwCa79cmbVddoXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY"/>
+            <img alt="" src="https://img.scoop.it/cKAEfvNSTJwCa79cmbVddoXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY"/>
             <p>
                 {props.message}
             </p>

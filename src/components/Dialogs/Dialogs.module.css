@@ -1,0 +1,22 @@
+.dialogs {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    overflow-y: scroll;
+    height: calc(726px - 133px);
+    background-color: rgb(35, 28, 42);
+}
+
+.dialogItemsBox {
+
+}
+.dialogItem {
+
+}
+.dialogMessagesBox {
+
+}
+
+.messageItem {
+
+}

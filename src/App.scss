@@ -22,50 +22,27 @@ p, h1, h2, h3, h4, h5, h6, a {
     padding: 0;
     margin: 0;
 }
-// header {
-//     background-color: $headerC;
-//     width: 100%;
-//     display: flex;
-//     justify-content: center;
-//     flex-direction: row;
-//     padding: 1.5em 0; 
-//     color: $white;
 
-//     p {
-//         border-left: .0625em solid $white;
-//         border-right: .0625em solid $white;
-//         border-radius: .25em;
-//         margin: .25em 0;
-//         font-weight: 300;
-//         font-size: 4em;
-//         width: max-content;
-//         margin: 0;
-        
-//     }
-// }
 main {
     display: flex;
     flex-direction: row;
 
 }
 
-/* width */
+//SCROLL BAR
 ::-webkit-scrollbar {
     width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     background: transparent;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: $Lwhite;
     border-radius: 1em;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: $white;
 }

@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import MyPosts from './MyPosts/MyPosts';
 import s from './Profile.module.css'
 import ProfileHeader from './ProfileHeader/ProfileHeader';
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className={s.contentWrapper}>
             <ProfileHeader/>
-            <MyPosts/>
+            <MyPosts profilePage={props.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>
         </div>
     )
 }
