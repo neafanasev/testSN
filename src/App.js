@@ -8,7 +8,7 @@ import Nav from "./components/Nav/Nav";
 import MessagesContainer from "./components/Messages/MessagesContainer";
 
 
-const App = (props) => {
+const App = () => {
   return (
       <div>
           <Header/>
