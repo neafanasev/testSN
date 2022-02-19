@@ -1,3 +1,12 @@
+import profileReducer from "./profile-reducer";
+import messagesReducer from "./messages-reducer";
+
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY'
+const SEND_MESSAGE = 'SEND-MESSAGE'
+
+
 let store = {
     _state: {
         profilePage: {
@@ -23,31 +32,29 @@ let store = {
                 {id:2, text:'how are you?'},
                 {id:3, text:'stop being so fucking pretty'},
                 {id:4, text:'bb'}
-            ]
+            ],
+            newMessageBody: ''
         }
-    },
-    getState(){
-        return this._state
     },
     _callSubscriber () {
         console.log('State changed')
     },
-    addPost(){
-        let newPost = {userid: 1, id: 5, likes: 0, msg: this._state.profilePage.newPostText}
-        this._state.profilePage.PostsData.push(newPost)
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText(newText){
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
+    getState(){
+        return this._state
     },
     subscribe(observer) {
         this._callSubscriber = observer
+    },
+
+    dispatch(action) {
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.messagesPage = messagesReducer(this._state.messagesPage, action)
+        this._callSubscriber(this._state)
+
     }
+
 }
 
-
-export default store;
+// export default store;
 
 window.store = store

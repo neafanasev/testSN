@@ -7,7 +7,7 @@ const Profile = (props) => {
     return (
         <div className={s.contentWrapper}>
             <ProfileHeader/>
-            <MyPosts profilePage={props.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>
+            <MyPosts store={props.store}/>
         </div>
     )
 }

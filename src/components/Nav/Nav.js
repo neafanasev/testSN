@@ -17,7 +17,7 @@ const Nav = () => {
                     </NavLink>
                 </div>
                 <div className={s.item}>
-                    <NavLink to='/dialogs'>
+                    <NavLink to='/messages'>
                         Messages
                     </NavLink>
                 </div>
