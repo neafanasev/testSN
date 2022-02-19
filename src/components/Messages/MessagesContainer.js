@@ -1,26 +1,25 @@
 import React from 'react'
-import s from './Messages.module.css'
-import {NavLink} from "react-router-dom";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/messages-reducer";
 import Messages from "./Messages";
+import {connect} from "react-redux";
 
-
-const MessagesContainer = (props) => {
-    let dialogsPage = props.store.getState().messagesPage
-
-    let onSendMessageClick = () => {
-        props.store.dispatch(sendMessageCreator())
+let mapStateToProps = (state) => {
+    return {
+        messagesPage: state.messagesPage
     }
-
-    let onNewMessageChange = (body) => {
-        props.store.dispatch(updateNewMessageBodyCreator(body))
-    }
-
-    return <Messages updateNewMessageBody={onNewMessageChange}
-                     sendMessage={onSendMessageClick}
-                     messagesPage={dialogsPage}
-    />
-
 }
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateNewMessageBody: (body) => {
+            dispatch(updateNewMessageBodyCreator(body))
+        },
+        sendMessage: () => {
+            dispatch(sendMessageCreator())
+        },
+    }
+}
+
+const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages);
 
 export default MessagesContainer

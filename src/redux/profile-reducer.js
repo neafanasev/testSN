@@ -1,5 +1,8 @@
+import store from "./redux-store";
+
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = 'ADD-POST';
+
 
 let initialState = {
     PostsData: [
@@ -12,14 +15,20 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             let newPost = {userid: 1, id: 5, likes: 0, msg: state.newPostText}
-            state.PostsData.push(newPost)
-            state.newPostText = ''
-            return state
-        case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText
-            return state
+            return {
+                ...state,
+                PostsData: [...state.PostsData, newPost],
+                newPostText: ''
+            }
+        }
+        case UPDATE_NEW_POST_TEXT: {
+            return {
+                ...state,
+                newPostText: action.newText
+            }
+        }
         default:
             return state
     }
