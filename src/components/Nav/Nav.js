@@ -12,13 +12,18 @@ const Nav = () => {
                     </NavLink>
                 </div>
                 <div className={s.item}>
+                    <NavLink to='/messages'>
+                        Messages
+                    </NavLink>
+                </div>
+                <div className={s.item}>
                     <NavLink to=''>
                         News
                     </NavLink>
                 </div>
                 <div className={s.item}>
-                    <NavLink to='/messages'>
-                        Messages
+                    <NavLink to='/users'>
+                        Users
                     </NavLink>
                 </div>
                 <div className={s.item}>
