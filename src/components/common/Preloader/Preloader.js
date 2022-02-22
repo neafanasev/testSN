@@ -2,9 +2,9 @@ import preloader from "../../../assets/images/preloader.gif";
 import React from "react";
 
 
-let Preloader = (props) => {
+let Preloader = () => {
     return  <div>
-                <img src={preloader} width={100} height={100}/>
+                <img alt='' src={preloader} width={100} height={100}/>
             </div>
 }
 

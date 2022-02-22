@@ -3,10 +3,10 @@ import s from './Profile.module.css'
 import ProfileHeader from './ProfileHeader/ProfileHeader';
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className={s.contentWrapper}>
-            <ProfileHeader/>
+            <ProfileHeader profile={props.profile}/>
             <MyPostsContainer/>
         </div>
     )

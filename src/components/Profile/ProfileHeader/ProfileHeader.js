@@ -1,16 +1,20 @@
 import React from 'react';
 import s from './ProfileHeader.module.css';
+import Preloader from "../../common/Preloader/Preloader";
 
-const ProfileHeader = () => {
+const ProfileHeader = (props) => {
+    if (!props.profile) {
+        return <Preloader/>
+    }
     return (
         <div className={s.profileHeader}>
             <div className={s.picture}>
-                <img alt="" src="https://img.scoop.it/cKAEfvNSTJwCa79cmbVddoXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY"/>
+                <img alt="" src={props.profile.photos.large}/>
             </div>
             <div className={s.info}>
                 <div className={s.name}>
                     <h1>
-                        Афанасьев Никита Евгеньевич
+                        {props.profile.fullName}
                     </h1>
                 </div>
             </div>
