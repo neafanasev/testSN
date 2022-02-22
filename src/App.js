@@ -6,7 +6,6 @@ import Header from './components/Header/Header';
 import Profile from "./components/Profile/Profile";
 import Nav from "./components/Nav/Nav";
 import MessagesContainer from "./components/Messages/MessagesContainer";
-import Users from "./components/Users/Users";
 import UsersContainer from "./components/Users/UsersContainer";
 
 
