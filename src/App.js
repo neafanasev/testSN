@@ -1,32 +1,34 @@
 import './App.css';
 import React from 'react'
-import {Route, Routes} from "react-router-dom";
+import {Route} from "react-router-dom";
 
-import Header from './components/Header/Header';
 import Nav from "./components/Nav/Nav";
 import MessagesContainer from "./components/Messages/MessagesContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import LoginPage from "./components/Login/Login";
 
 
 const App = () => {
   return (
       <div>
-          <Header/>
+          <HeaderContainer/>
           <main>
               <Nav />
-              <Routes>
-                  <Route path='/messages/*' element={
-                      <MessagesContainer/>
-                  } />
-                  <Route path='/profile/*' element={
-                      <ProfileContainer />
-                  } />
-                  <Route path='/users/*' element={
-                      <UsersContainer />
-                  } />
+              <Route path='/messages/' render={
+                  () => <MessagesContainer/>
+              } />
+              <Route path='/profile/:userId?' render={
+                  () => <ProfileContainer />
+              } />
+              <Route path='/users/' render={
+                  () => <UsersContainer />
+              } />
+              <Route path='/login/' render={
+                  () => <LoginPage />
+              } />
 
-              </Routes>
           </main>
       </div>
 

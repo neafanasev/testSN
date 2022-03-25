@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './Messages.module.css'
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 
 const DialogItem = (props) => {
     let path = '/dialogs/' + props.id
@@ -30,8 +30,6 @@ const Messages = (props) => {
     let dialogItemsDataC = state.dialogItemsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
     let messagesDataC = state.messagesData.map(messages => <MessageItem text={messages.text} />)
 
-
-
     let onSendMessageClick = () => {
         props.sendMessage()
     }
@@ -40,6 +38,8 @@ const Messages = (props) => {
         let body = e.target.value
         props.updateNewMessageBody(body)
     }
+
+    if (!props.isAuth) return <Redirect to={'/login'} />
 
     return (
         <div className={s.dialogs}>

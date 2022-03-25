@@ -12,10 +12,15 @@
     border-left: .0625em solid rgb(235, 235, 235);
     border-right: .0625em solid rgb(235, 235, 235);
     border-radius: .25em;
-    margin: .25em 0;
     font-weight: 300;
     font-size: 4em;
-    width: max-content;
-    margin: 0;
-    
+    margin: .25em 0;
+    padding: 0 0.25em;
+
 }
+
+.header p a {
+    color: rgb(235, 235, 235);
+    text-decoration: none;
+}
+
