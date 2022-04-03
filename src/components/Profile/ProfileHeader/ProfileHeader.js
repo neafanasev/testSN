@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './ProfileHeader.module.css';
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileHeader = (props) => {
     if (!props.profile) {
@@ -17,6 +18,7 @@ const ProfileHeader = (props) => {
                         {props.profile.fullName}
                     </h1>
                 </div>
+                <ProfileStatus status='hello' />
             </div>
         </div>
     )
