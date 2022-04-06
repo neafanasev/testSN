@@ -1,4 +1,3 @@
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
 const SEND_MESSAGE = 'SEND_MESSAGE'
 
 let initialState = {
@@ -16,25 +15,17 @@ let initialState = {
         {id:2, text:'how are you?'},
         {id:3, text:'stop being so fucking pretty'},
         {id:4, text:'bb'}
-    ],
-    newMessageBody: ''
+    ]
 }
 
 
 export const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE: {
-            let body = state.newMessageBody
+            let body = action.newMessageBody
             return {
                 ...state,
                 messagesData: [...state.messagesData, {id: 5, text: body}],
-                newMessageBody: ''
-            }
-        }
-        case UPDATE_NEW_MESSAGE_BODY: {
-            return {
-                ...state,
-                newMessageBody: action.body
             }
         }
         default:
@@ -42,7 +33,6 @@ export const messagesReducer = (state = initialState, action) => {
     }
 }
 
-export let sendMessageAC = () => ({type: SEND_MESSAGE})
-export let updateNewMessageBodyAC = (body) => ({type: UPDATE_NEW_MESSAGE_BODY, body})
+export let sendMessageAC = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody})
 
 export default messagesReducer

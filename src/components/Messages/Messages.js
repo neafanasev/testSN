@@ -1,6 +1,8 @@
 import React from 'react'
 import s from './Messages.module.css'
 import {NavLink, Redirect} from "react-router-dom";
+import AddMessageForm from "./AddMessagesForm";
+import {maxLengthCreator} from "../../utils/validators/validator";
 
 const DialogItem = (props) => {
     let path = '/dialogs/' + props.id
@@ -25,21 +27,15 @@ const MessageItem = (props) => {
 
 const Messages = (props) => {
     let state = props.messagesPage
-    let newMessageBody = state.newMessageBody
 
-    let dialogItemsDataC = state.dialogItemsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
-    let messagesDataC = state.messagesData.map(messages => <MessageItem text={messages.text} />)
+    let dialogItemsDataC = state.dialogItemsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>)
+    let messagesDataC = state.messagesData.map(messages => <MessageItem text={messages.text}/>)
 
-    let onSendMessageClick = () => {
-        props.sendMessage()
+    let addNewMessage = (values) => {
+        props.sendMessage(values.newMessageBody)
     }
 
-    let onNewMessageChange = (e) => {
-        let body = e.target.value
-        props.updateNewMessageBody(body)
-    }
-
-    if (!props.isAuth) return <Redirect to={'/login'} />
+    if (!props.isAuth) return <Redirect to={'/login'}/>
 
     return (
         <div className={s.dialogs}>
@@ -49,20 +45,13 @@ const Messages = (props) => {
             <div className={s.dialogMessagesBox}>
                 <div>{messagesDataC}</div>
                 <div>
-                    <div>
-                        <textarea value={newMessageBody}
-                                  onChange={onNewMessageChange}
-                                  placeholder='Enter your message'
-                        >
-
-                        </textarea>
-                    </div>
-                    <div><button onClick={onSendMessageClick}>asdasd</button></div>
+                    <AddMessageForm onSubmit={addNewMessage}/>
                 </div>
 
             </div>
         </div>
     )
 }
+
 
 export default Messages

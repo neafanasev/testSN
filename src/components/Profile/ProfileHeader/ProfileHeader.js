@@ -18,7 +18,7 @@ const ProfileHeader = (props) => {
                         {props.profile.fullName}
                     </h1>
                 </div>
-                <ProfileStatus status='hello' />
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
             </div>
         </div>
     )

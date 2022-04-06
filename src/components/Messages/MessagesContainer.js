@@ -1,7 +1,6 @@
 import React from 'react'
 import {
     sendMessageAC as sendMessage,
-    updateNewMessageBodyAC as updateNewMessageBody
 } from "../../redux/messages-reducer";
 import Messages from "./Messages";
 import {connect} from "react-redux";
@@ -16,7 +15,7 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToStateObj = {
-    updateNewMessageBody, sendMessage
+    sendMessage
 }
 
 const MessagesContainerC = compose(
