@@ -5,32 +5,26 @@ import {required} from "../../utils/validators/validator";
 import {connect} from "react-redux";
 import {loginTC as login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
-
+import s from '../common/FormsControls/FormsControls.module.css'
 
 const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field component={Input}
-                       name={'email'}
-                       validate={[required]}
-                       placeholder={'Email'}/>
-            </div>
-            <div>
-                <Field component={Input}
-                       name={'password'}
-                       validate={[required]}
-                       type={'password'}
-                       placeholder={'Password'}/>
-            </div>
-            <div>
-                <Field component={Input}
-                       name={'rememberMe'}
-                       type={'checkbox'}/>
-            </div>
-            <div>
-                <button>Login</button>
-            </div>
+            <Field component={Input}
+                   name={'email'}
+                   validate={[required]}
+                   placeholder={'Email'}/>
+            <Field component={Input}
+                   name={'password'}
+                   validate={[required]}
+                   type={'password'}
+                   placeholder={'Password'}/>
+            <Field component={Input}
+                   name={'rememberMe'}
+                   type={'checkbox'}/>
+            <button>Login</button>
+            {props.error && <div className={s.formSummaryError}>Wrong email or password</div>}
+
         </form>
     )
 }
