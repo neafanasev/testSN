@@ -4,10 +4,11 @@ import Paginator from "../common/Paginator/Paginator";
 
 const Users = (props) => {
     return <div>
+
         <Paginator currentPage={props.currentPage}
                    onPageChanged={props.onPageChanged}
                    pageSize={props.pageSize}
-                   totalUsersCount={props.totalUsersCount}
+                   totalItemsCount={props.totalUsersCount}
         />
         {
             props.users.map(u => (<User key={u.id}
