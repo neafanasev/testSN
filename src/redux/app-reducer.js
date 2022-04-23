@@ -23,12 +23,6 @@ const appReducer = (state = initialState, action) => {
 export const initializedSuccessfullyAC = () => ({type: INITIALIZED_SUCCESSFULLY})
 
 export const initializeAppTC = () => (dispatch) => {
-    // let Promise = [
-    //     dispatch(getAuthUserDataTC())
-    // ]
-    // Promise.all(Promise).then(() => {
-    //     dispatch(initializedSuccessfullyAC())
-    // })
     let promise = dispatch(getAuthUserDataTC())
     Promise.all([promise])
         .then(() => {

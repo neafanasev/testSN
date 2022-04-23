@@ -24,53 +24,42 @@ import {
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.requestUsers(this.props.currentPage, this.props.pageSize)
+        const {currentPage, pageSize} = this.props
+        this.props.requestUsers(currentPage, pageSize)
     }
 
     onPageChanged = (pageNumber) => {
+        const {pageSize} = this.props
         this.props.setCurrentPage(pageNumber)
-        this.props.requestUsers(pageNumber, this.props.pageSize)
+        this.props.requestUsers(pageNumber, pageSize)
     }
 
     render() {
+        const {totalUsersCount, pageSize, users, currentPage, isFetching, follow, unfollow, isFollowingInProgress} = this.props
         return <>
             {this.props.isFetching ? <Preloader/> : null}
-            <Users totalUsersCount={this.props.totalUsersCount}
-                   pageSize={this.props.pageSize}
-                   users={this.props.users}
-                   currentPage={this.props.currentPage}
-                   isFetching={this.props.isFetching}
+            <Users totalUsersCount={totalUsersCount}
+                   pageSize={pageSize}
+                   users={users}
+                   currentPage={currentPage}
+                   isFetching={isFetching}
                    onPageChanged={this.onPageChanged}
-                   follow={this.props.follow}
-                   unfollow={this.props.unfollow}
-                   isFollowingInProgress={this.props.isFollowingInProgress}
+                   follow={follow}
+                   unfollow={unfollow}
+                   isFollowingInProgress={isFollowingInProgress}
             />
         </>
     }
 }
 
-
-// let mapStateToProps = (state) => {
-//     return {
-//         users: state.usersPage.users,
-//         pageSize: state.usersPage.pageSize,
-//         totalUsersCount: state.usersPage.totalUsersCount,
-//         currentPage: state.usersPage.currentPage,
-//         isFetching: state.usersPage.isFetching,
-//         isFollowingInProgress: state.usersPage.isFollowingInProgress
-//     }
-// }
-
-let mapStateToProps = (state) => {
-    return {
-        users: getUsers(state),
-        pageSize: getPageSize(state),
-        totalUsersCount: getTotalUsersCount(state),
-        currentPage: getCurrentPage(state),
-        isFetching: getIsFetching(state),
-        isFollowingInProgress: getIsFollowingInProgress(state)
-    }
-}
+let mapStateToProps = (state) => ({
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    isFollowingInProgress: getIsFollowingInProgress(state)
+})
 
 let mapDispatchToPropsObj = {
     follow, unfollow, setCurrentPage,

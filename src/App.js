@@ -1,6 +1,8 @@
 import React from 'react'
-import {Route, withRouter} from "react-router-dom";
-import {connect} from "react-redux";
+import {BrowserRouter, Route, withRouter} from "react-router-dom"
+import {connect, Provider} from "react-redux"
+import {compose} from "redux"
+
 
 import Nav from "./components/Nav/Nav";
 import MessagesContainer from "./components/Messages/MessagesContainer";
@@ -8,11 +10,12 @@ import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
-import {initializeAppTC} from "./redux/app-reducer";
 
-import './App.css';
-import {compose} from "redux";
-import Preloader from "./components/common/Preloader/Preloader";
+import Preloader from "./components/common/Preloader/Preloader"
+import './App.css'
+import store from "./redux/redux-store"
+import {initializeAppTC} from "./redux/app-reducer"
+
 
 
 class App extends React.Component {
@@ -54,7 +57,19 @@ const mapDispatchToPropsObj = {
     initializeAppTC
 }
 
-export default compose(
+const AppContainer = compose(
     withRouter,
     connect(mapStateToProps, mapDispatchToPropsObj)
 )(App)
+
+const MainApp = (props) => {
+    return (
+        <BrowserRouter>
+            <Provider store={store}>
+                <AppContainer />
+            </Provider>
+        </BrowserRouter>
+    )
+}
+
+export default MainApp
