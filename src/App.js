@@ -1,5 +1,5 @@
 import React, {Suspense} from 'react'
-import {BrowserRouter, Route, withRouter} from "react-router-dom"
+import {HashRouter, Route, withRouter} from "react-router-dom"
 import {connect, Provider} from "react-redux"
 import {compose} from "redux"
 
@@ -63,11 +63,11 @@ const AppContainer = compose(
 
 const MainApp = (props) => {
     return (
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <HashRouter>
             <Provider store={store}>
                 <AppContainer />
             </Provider>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
