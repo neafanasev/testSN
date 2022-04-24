@@ -35,7 +35,6 @@ class UsersContainer extends React.Component {
     }
 
     render() {
-        debugger
         const {totalUsersCount, pageSize, users, currentPage, isFetching, follow, unfollow, isFollowingInProgress} = this.props
         return <>
             {this.props.isFetching ? <Preloader/> : null}

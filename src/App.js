@@ -1,22 +1,21 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import {BrowserRouter, Route, withRouter} from "react-router-dom"
 import {connect, Provider} from "react-redux"
 import {compose} from "redux"
 
-
 import Nav from "./components/Nav/Nav";
-import MessagesContainer from "./components/Messages/MessagesContainer";
-import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginPage from "./components/Login/Login";
+import UsersContainer from "./components/Users/UsersContainer"
+import HeaderContainer from "./components/Header/HeaderContainer"
+import LoginPage from "./components/Login/Login"
 
 import Preloader from "./components/common/Preloader/Preloader"
 import './App.css'
 import store from "./redux/redux-store"
 import {initializeAppTC} from "./redux/app-reducer"
+import {withSuspense} from "./components/hoc/withSuspense";
 
-
+const MessagesContainer = React.lazy(() => import("./components/Messages/MessagesContainer"))
+const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"))
 
 class App extends React.Component {
     componentDidMount() {
@@ -26,16 +25,16 @@ class App extends React.Component {
     render() {
         if (!this.props.initialized) {
             return <Preloader/>
-        } else {
+        } else { //make lazy loading for everything, make hoc
             return (
                 <div>
                     <HeaderContainer/>
                     <main>
                         <Nav/>
                         <Route path='/messages/'
-                               render={() => <MessagesContainer/>}/>
+                               render={withSuspense(MessagesContainer)} />
                         <Route path='/profile/:userId?'
-                               render={() => <ProfileContainer/>}/>
+                               render={withSuspense(ProfileContainer)} />
                         <Route path='/users/'
                                render={() => <UsersContainer/>}/>
                         <Route path='/login/'

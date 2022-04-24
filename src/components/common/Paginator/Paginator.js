@@ -15,7 +15,6 @@ const Paginator = ({currentPage, onPageChanged, totalItemsCount, pageSize, porti
     let [portionNumber, setPortionNumber] = useState(1)
     let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
     let rightPortionPageNumber = portionNumber * portionSize
-    console.log('portionNumber ' + portionNumber + ' leftPortionPageNumber ' + leftPortionPageNumber + ' rightPortionPageNumber ' + rightPortionPageNumber )
     return (
         <div className={s.paginator}>
             {portionNumber > 1 &&
