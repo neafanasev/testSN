@@ -1,5 +1,5 @@
 const SEND_MESSAGE = 'SEND_MESSAGE'
-
+// like in auth reducer
 let initialState = {
     dialogItemsData: [
         {id: '1', name: 'Коля'},

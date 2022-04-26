@@ -1,5 +1,5 @@
 import {getAuthUserDataTC} from "./auth-reducer";
-
+// like in auth reducer
 const INITIALIZED_SUCCESSFULLY = 'INITIALIZED_SUCCESSFULLY'
 
 let initialState = {

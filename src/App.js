@@ -1,5 +1,5 @@
 import React, {Suspense} from 'react'
-import {HashRouter, Route, withRouter} from "react-router-dom"
+import {HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom"
 import {connect, Provider} from "react-redux"
 import {compose} from "redux"
 
@@ -18,8 +18,16 @@ const MessagesContainer = React.lazy(() => import("./components/Messages/Message
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"))
 
 class App extends React.Component {
+    catchAllUnhandledErrors = (promiseRejectionEvent) => {
+        alert('some problem occurred')
+    }
     componentDidMount() {
         this.props.initializeAppTC()
+        window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors)
     }
 
     render() {
@@ -31,15 +39,19 @@ class App extends React.Component {
                     <HeaderContainer/>
                     <main>
                         <Nav/>
-                        <Route path='/messages/'
-                               render={withSuspense(MessagesContainer)} />
-                        <Route path='/profile/:userId?'
-                               render={withSuspense(ProfileContainer)} />
-                        <Route path='/users/'
-                               render={() => <UsersContainer/>}/>
-                        <Route path='/login/'
-                               render={() => <LoginPage/>}/>
-
+                        <Switch>
+                            {/*redirect from / to /profile/ */}
+                            <Route path='/messages/'
+                                   render={withSuspense(MessagesContainer)}/>
+                            <Route path='/profile/:userId?'
+                                   render={withSuspense(ProfileContainer)}/>
+                            <Route path='/users/'
+                                   render={() => <UsersContainer/>}/>
+                            <Route path='/login/'
+                                   render={() => <LoginPage/>}/>
+                            <Route path='*'
+                                   render={() => <div>404 NOT FOUND</div>}/>
+                        </Switch>
                     </main>
                 </div>
             )
@@ -61,11 +73,11 @@ const AppContainer = compose(
     connect(mapStateToProps, mapDispatchToPropsObj)
 )(App)
 
-const MainApp = (props) => {
+const MainApp = () => {
     return (
         <HashRouter>
             <Provider store={store}>
-                <AppContainer />
+                <AppContainer/>
             </Provider>
         </HashRouter>
     )

@@ -24,3 +24,7 @@
     font-size: 3em;
     font-weight: 400;
 }
+
+.mainPhoto {
+    max-width: 200px
+}
