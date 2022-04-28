@@ -1,9 +1,9 @@
 import {profileAPI} from "../api/api";
-// like in auth reducer
-const ADD_POST = 'ADD_POST';
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const SET_STATUS = 'SET_STATUS'
-const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS'
+
+const ADD_POST = '/profile/ADD_POST';
+const SET_USER_PROFILE = '/profile/SET_USER_PROFILE';
+const SET_STATUS = '/profile/SET_STATUS'
+const SAVE_PHOTO_SUCCESS = '/profile/SAVE_PHOTO_SUCCESS'
 
 let initialState = {
     PostsData: [
@@ -75,6 +75,7 @@ export const updateStatusTC = (status) => async (dispatch) => {
 
 export const savePhotoTC = (file) => async (dispatch) => {
     let response = await profileAPI.savePhoto(file)
+    console.log(response)
 
     if (response.data.resultCode === 0) {
         dispatch(savePhotoSuccessAC(response.data.data))

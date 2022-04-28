@@ -1,19 +1,16 @@
 import React from 'react'
-import s from './Messages.module.css'
-import {NavLink, Redirect} from "react-router-dom";
+import s from './Messages.module.scss'
+import {NavLink} from "react-router-dom";
 import AddMessageForm from "./AddMessagesForm";
-import {maxLengthCreator} from "../../utils/validators/validator";
 
-const DialogItem = (props) => {
-    let path = '/dialogs/' + props.id
-    return (
-        <div className={s.item}>
-            <NavLink to={path}>
-                {props.name}
-            </NavLink>
-        </div>
-    )
-}
+const DialogItem = (props) => (
+    <div className={s.item}>
+        <NavLink to={'/dialogs/' + props.id}>
+            {props.name}
+        </NavLink>
+    </div>
+)
+
 
 const MessageItem = (props) => {
     return (
@@ -32,10 +29,8 @@ const Messages = (props) => {
     let messagesDataC = state.messagesData.map(messages => <MessageItem text={messages.text}/>)
 
     let addNewMessage = (values) => {
-        props.sendMessage(values.newMessageBody)
+        props.sendMessageAC(values.newMessageBody)
     }
-
-    if (!props.isAuth) return <Redirect to={'/login'}/>
 
     return (
         <div className={s.dialogs}>

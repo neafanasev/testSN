@@ -1,5 +1,5 @@
-const SEND_MESSAGE = 'SEND_MESSAGE'
-// like in auth reducer
+const SEND_MESSAGE = '/messages/SEND_MESSAGE'
+
 let initialState = {
     dialogItemsData: [
         {id: '1', name: 'Коля'},
@@ -13,7 +13,7 @@ let initialState = {
     messagesData: [
         {id:1, text:'hi'},
         {id:2, text:'how are you?'},
-        {id:3, text:'stop being so fucking pretty'},
+        {id:3, text:'stop'},
         {id:4, text:'bb'}
     ]
 }

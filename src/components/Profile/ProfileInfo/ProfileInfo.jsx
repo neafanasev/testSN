@@ -1,20 +1,19 @@
 import React from 'react'
-import s from './ProfileHeader.module.css'
+import s from './ProfileInfo.module.scss'
 import Preloader from "../../common/Preloader/Preloader"
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks"
+import ProfileStatus from "./ProfileStatus"
 import userPhoto from "../../../assets/images/user.png"
 
-const ProfileHeader = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+const ProfileInfo = ({profile, status, updateStatusTC, isOwner, savePhotoTC}) => {
     if (!profile) {
         return <Preloader/>
     }
-    const onMainPhotoSelected = (e) => {
-        debugger
-        if (e.target.files.length) {
 
-            savePhoto(e.target.files[0])
-        }
-    }
+    // const onMainPhotoSelected = (e) => {
+    //     if (e.target.files.length) {
+    //         savePhotoTC(e.target.files[0])
+    //     }
+    // }
     //make choose type only img
     //make savephoto live update by using hooks, make fnc for setting photo
 
@@ -23,11 +22,11 @@ const ProfileHeader = ({profile, status, updateStatus, isOwner, savePhoto}) => {
         <div className={s.profileHeader}>
             <div className={s.picture}>
                 <img alt="" src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
-                {isOwner && <div><input type={'file'} onChange={onMainPhotoSelected}/></div>}
+                {/*{isOwner && <div><input type={'file'} onChange={onMainPhotoSelected}/></div>}*/}
             </div>
             <div className={s.info}>
                 <ProfileData profile={profile}/>
-                <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+                <ProfileStatus status={status} updateStatusTC={updateStatusTC} />
             </div>
         </div>
     )
@@ -70,4 +69,4 @@ const Contact = ({contactTitle, contactValue}) => {
 }
 
 
-export default ProfileHeader;
+export default ProfileInfo;

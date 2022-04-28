@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Header.module.css';
+import s from './Header.module.scss';
 import {NavLink} from "react-router-dom";
 
 const Header = (props) => {
@@ -8,7 +8,7 @@ const Header = (props) => {
             <div id="logo">
                 <p>
                     {
-                        props.isAuth ? <button onClick={props.logout}>{props.login}</button>:
+                        props.isAuth ? <button onClick={props.logoutTC}>logout</button>:
                             <NavLink to={'/login'}>
                                 &nbsp; Click here to login &nbsp;
                             </NavLink>

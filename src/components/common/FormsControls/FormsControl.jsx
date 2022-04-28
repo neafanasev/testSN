@@ -1,8 +1,8 @@
 import React from "react";
-import s from './FormsControls.module.css'
+import s from './FormsControls.module.scss'
 import {Field} from "redux-form";
 
-const FormControl = ({input, meta: {touched, error}, children, ...props}) => {
+const FormControl = ({input, meta: {touched, error}, children}) => {
     const hasError = touched && error
     return (
         <div className={s.formControl + ' ' + (hasError ? s.error : '')}>

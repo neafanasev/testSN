@@ -1,12 +1,12 @@
 import React from "react"
 import {reduxForm} from "redux-form"
-import {Redirect} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import {connect} from "react-redux"
 
 import {createField, Input} from "../common/FormsControls/FormsControl"
 import {required} from "../../utils/validators/validator"
-import {loginTC as login} from "../../redux/auth-reducer"
-import s from '../common/FormsControls/FormsControls.module.css'
+import {loginTC} from "../../redux/auth-reducer"
+import s from '../common/FormsControls/FormsControls.module.scss'
 
 const LoginForm = ({handleSubmit, error, captchaUrl}) => {
     return (
@@ -14,7 +14,7 @@ const LoginForm = ({handleSubmit, error, captchaUrl}) => {
             {createField('Email', 'email', [required], Input)}
             {createField('Password', 'password', [required], Input, 'password')}
             {createField(null, 'rememberMe', [], Input, 'checkbox', 'remember me')}
-            {captchaUrl && <img src={captchaUrl} />}
+            {captchaUrl && <img src={captchaUrl} alt='captcha'/>}
             {captchaUrl && createField('Enter captcha', 'captcha', [required], Input, '', '')}
 
             <button>Login</button>
@@ -27,11 +27,12 @@ const LoginForm = ({handleSubmit, error, captchaUrl}) => {
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
 const Login = (props) => {
+    let navigate = useNavigate()
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
+        props.loginTC(formData.email, formData.password, formData.rememberMe, formData.captcha)
     }
     if (props.isAuth) {
-        return <Redirect to={'/profile'}/>
+        navigate('../profile')
     }
     return (
         <div>
@@ -47,7 +48,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToStateObj = {
-    login
+    loginTC
 }
 
 

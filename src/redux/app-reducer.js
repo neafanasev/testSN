@@ -1,6 +1,6 @@
-import {getAuthUserDataTC} from "./auth-reducer";
-// like in auth reducer
-const INITIALIZED_SUCCESSFULLY = 'INITIALIZED_SUCCESSFULLY'
+import {getAuthUserDataTC} from "./auth-reducer"
+
+const INITIALIZED_SUCCESSFULLY = '/app/INITIALIZED_SUCCESSFULLY'
 
 let initialState = {
     initialized: false

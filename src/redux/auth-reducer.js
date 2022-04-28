@@ -5,7 +5,6 @@ const SET_USER_DATA = '/auth/SET_USER_DATA'
 const GET_CAPTCHA_URL_SUCCESS = 'auth/GET_CAPTCHA_URL_SUCCESS'
 
 let initialState = {
-    id: null,
     email: null,
     login: null,
     isAuth: false,
@@ -49,7 +48,7 @@ export const getAuthUserDataTC = () => async (dispatch) => {
 
 export const loginTC = (email, password, rememberMe, captcha) => async (dispatch) => {
     let response = await authAPI.login(email, password, rememberMe, captcha)
-
+    console.log(response)
     if (response.data.resultCode === 0) {
         dispatch(getAuthUserDataTC())
     } else {

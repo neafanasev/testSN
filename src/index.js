@@ -1,14 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 
 import './index.css';
 import MainApp from './App'
 
-
-
-ReactDOM.render(
-    <MainApp />, document.getElementById('root')
-)
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(<MainApp />)
 
 reportWebVitals();

@@ -1,6 +1,6 @@
-import React from "react";
-import User from "./User";
-import Paginator from "../common/Paginator/Paginator";
+import React from "react"
+import User from "./User"
+import Paginator from "../common/Paginator/Paginator"
 
 const Users = (props) => {
     return <div>
@@ -14,8 +14,8 @@ const Users = (props) => {
             props.users.map(u => (<User key={u.id}
                                         user={u}
                                         isFollowingInProgress={props.isFollowingInProgress}
-                                        unfollow={props.unfollow}
-                                        follow={props.follow}/>))
+                                        unfollowTC={props.unfollowTC}
+                                        followTC={props.followTC}/>))
         }
     </div>
 }

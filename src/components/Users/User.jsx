@@ -1,9 +1,9 @@
-import s from "./Users.module.css";
-import userPhoto from "../../assets/images/user.png";
-import React from "react";
-import {NavLink} from "react-router-dom";
+import s from "./Users.module.scss"
+import userPhoto from "../../assets/images/user.png"
+import React from "react"
+import {NavLink} from "react-router-dom"
 
-const User = ({user, key, isFollowingInProgress, unfollow, follow}) => {
+const User = ({user, key, isFollowingInProgress, unfollowTC, followTC}) => {
     return (
         <div key={key}>
 
@@ -17,10 +17,10 @@ const User = ({user, key, isFollowingInProgress, unfollow, follow}) => {
                     <div>
                         {user.followed
                             ? <button disabled={isFollowingInProgress.some(id => id === user.id)}
-                                      onClick={() => unfollow(user.id)}>Unfollow</button>
+                                      onClick={() => unfollowTC(user.id)}>Unfollow</button>
 
                             : <button disabled={isFollowingInProgress.some(id => id === user.id)}
-                                      onClick={() => follow(user.id)}>Follow</button>
+                                      onClick={() => followTC(user.id)}>Follow</button>
                         }
                     </div>
                 </span>
