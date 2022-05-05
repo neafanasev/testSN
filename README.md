@@ -3,7 +3,7 @@ https://neafanasev.github.io/
 ## Introduction
 Front-end - mine, backend - [SamuraiJS Social Network API](https://social-network.samuraijs.com/). Current version of the project is intended only to show my React knowledge, so don't pay attention to the appearance, it will be designed soon. If you want to see at my layout skills, scroll down to the Previous projects.
 ## How to authorize
-Use nikitin242003@gmail.com as login and 
+Use nikitin242003@gmail.com as login and 12345666 as password
 ## Stack
 - creacte-react-app -> React/redux (+ react-redux, redux-thunk, redux-form, react-router-dom, reselect)
 - axios
