@@ -56,11 +56,11 @@ const AppContainer = connect(
     {initializeAppTC})(App)
 
 const MainApp = () => (
-    <BrowserRouter>
+    <HashRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </BrowserRouter>
+    </HashRouter>
 )
 
 export default MainApp

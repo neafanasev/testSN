@@ -40,22 +40,22 @@ const ProfileData = ({profile}) => {
                     {profile.fullName}
                 </h1>
             </div>
-            <div>
-                Looking for a job: {profile.lookingForAJob ? 'yes' : 'no'}
-            </div>
-            {profile.lookingForAJob &&
-                <div>
-                    {profile.lookingForAJobDescription}
-                </div>
-            }
-            <div>
-                About me: {profile.aboutMe}
-            </div>
-            <div>
-                Contacts: {Object.keys(profile.contacts).map(key => (
-                <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
-            ))}
-            </div>
+            {/*<div>*/}
+            {/*    Looking for a job: {profile.lookingForAJob ? 'yes' : 'no'}*/}
+            {/*</div>*/}
+            {/*{profile.lookingForAJob &&*/}
+            {/*    <div>*/}
+            {/*        {profile.lookingForAJobDescription}*/}
+            {/*    </div>*/}
+            {/*}*/}
+            {/*<div>*/}
+            {/*    About me: {profile.aboutMe}*/}
+            {/*</div>*/}
+            {/*<div>*/}
+            {/*    Contacts: {Object.keys(profile.contacts).map(key => (*/}
+            {/*    <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>*/}
+            {/*))}*/}
+            {/*</div>*/}
         </div>
     )
 }
