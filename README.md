@@ -1,5 +1,5 @@
 # Social Network
-https://neafanasev.github.io/test-SN
+https://neafanasev.github.io/testSN
 ## Introduction
 Front-end - mine, backend - [SamuraiJS Social Network API](https://social-network.samuraijs.com/). Current version of the project is intended only to show my React knowledge, so don't pay attention to the appearance, it will be designed soon. If you want to see at my layout skills, scroll down to the Previous projects.
 ## How to authorize
